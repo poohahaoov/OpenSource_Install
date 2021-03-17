@@ -1,0 +1,62 @@
+#!/bin/bash
+#### GCC-9.3.0 install ####
+
+
+#advance preparatiogcc
+#1. gmp-6.2.1 - PATH:/gcc/tmp/gmp-6.2.0
+#2. mpfr-4.1.0- PATH:/gcc/tmp/mpfr-4.0.2
+#3. mpc-1.2.1 - PATH:/gcc/tmp/mpc-1.2.1
+#4. isl-0.18  - PATH:/gcc/tmp/isl-0.18
+#5. gcc-9.3.0 - PATH:/gcc/tmp/gcc-9.3.0
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#gmp-6.2.1 install
+cd /gcc/tmp/gmp-6.2.1
+./configure --prefix=/gcc/gcc-9.3.0/gmp-6.2.0 --enable-cxx --with-gnu-ld
+make all -j 16
+make check -j 16
+make install
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#mpfr-4.1.0 install
+cd /gcc/tmp/mpfr-2.4.0
+./configure --prefix=/gcc/gcc-9.3.0/mpfr-4.1.0 --with-gmp=/gcc/gcc-9.3.0/gmp-6.2.0 --enable-shared --with-gnu-ld
+make all -j 16
+make check -j 16
+make install
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#isl-0.18 install
+cd /gcc/tmp/isl-0.18
+./configure --prefix=/gcc/gcc-9.3.0/isl-0.18 --with-gmp-prefix=/gcc/gcc-9.3.0/gmp-6.2.0 --enable-shared --with-gnu-ld
+make all -j 16
+make check
+make install
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#mpc-1.2.1 install
+cd /gcc/tmp/mpc-1.2.1
+./configure --prefix=/gcc/gcc-9.3.0/mpc-1.2.1  --with-gmp=/gcc/gcc-9.3.0/gmp-6.2.0 --with-mpfr=/gcc/gcc-9.3.0/mpfr-4.1.0 --with-gnu-ld --enable-shared
+make all -j 16
+make check
+make install
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#gcc-9.3.0 install
+cd /gcc/tmp/gcc-9.3.0
+./configure --prefix=/gcc/gcc-9.3.0 \
+--with-gmp=/gcc/gcc-9.3.0/gmp-6.2.0 --with-mpfr=/gcc/gcc-9.3.0/mpfr-4.1.0 --with-mpc=/gcc/gcc-9.3.0/mpc-1.2.1 --with-isl=/gcc/gcc-9.3.0/isl-0.18 --enable-multilib \
+--with-mpfr-include=/gcc/gcc-9.3.0/mpfr-4.1.0/include --with-mpfr-lib=/gcc/gcc-9.3.0/mpfr-4.1.0/lib --enable-cxx --disable-multilib --enable-languages=c,c++,fortran,lto
+
+make all -j 16
+make check
+make install
+
+
+
+
