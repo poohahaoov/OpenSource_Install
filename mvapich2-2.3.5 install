@@ -15,7 +15,7 @@
 --with-ib-include=/usr/include/infiniband --with-ib-libpath=/usr/lib64 \
 --with-arch_32=x86-64 --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto \
 --enable-plugin --enable-initfini-array --disable-libgcj --enable-gnu-indirect-function \
---with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux --disable-mcast
+--with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
 
 #---------------------------------------------------------------------------------------------------------------------
 
@@ -28,6 +28,6 @@
 
 #---------------------------------------------------------------------------------------------------------------------
 
-make all -j 64 2>&1 | tee make.result
-make check -j 64 | tee make.result
+make all -j 64 2>&1 | tee make_result
+make check -j 64 | tee make_check.result
 make install
