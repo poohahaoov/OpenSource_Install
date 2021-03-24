@@ -1,0 +1,14 @@
+#!/bin/bash
+#### deepmd-kit_install ####
+
+#---------------------------------------------------------------------------------------------------------------------
+cmake -DTENSORFLOW_ROOT=/apps/GPGPU/RHEL7/Python/Python-3.6.6/lib/python3.6/site-packages/tensorflow -DCMAKE_INSTALL_PREFIX=/home/sr2/gh.jin/apps/deepmd-kit-1.3.3 ..
+
+
+CMAKE_BUILD_TYPE
+ CMAKE_INSTALL_PREFIX             /home/sr2/gh.jin/apps/deepmd-kit-1.3.3
+ TensorFlowFramework_LIBRARY_te   /apps/GPGPU/RHEL7/Python/Python-3.6.6/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so
+ TensorFlow_INCLUDE_DIRS          /apps/GPGPU/RHEL7/Python/Python-3.6.6/lib/python3.6/site-packages/tensorflow/include
+ TensorFlow_INCLUDE_DIRS_GOOGLE   /apps/GPGPU/RHEL7/Python/Python-3.6.6/lib/python3.6/site-packages/tensorflow/include
+ TensorFlow_LIBRARY_tensorflow_   /apps/GPGPU/RHEL7/Python/Python-3.6.6/lib/python3.6/site-packages/tensorflow/python
+ TensorFlow_LIBRARY_tensorflow_   /apps/GPGPU/RHEL7/Python/Python-3.6.6/lib/python3.6/site-packages/tensorflow/libtensorflow_framework.so
