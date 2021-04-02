@@ -1,0 +1,18 @@
+#!/bin/bash
+#### ucx-1.10.0_cuda install ####
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#advance preparatiogcc
+#mucx-1.10.0_cuda
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#ucx-1.10.0_cuda install
+./configure --prefix=/apps/mpi/gcc/openmpi-4.1.0_mxm_cuda --with-cuda=/apps/cuda/cuda10.1 --with-gnu-ld --with-mcpu --with-ib-hw-tm --with-dm | tee configure.result
+
+make all -j 32 2>&1 | tee make_result
+make check -j 32 2>&1 | tee make_check.result
+make install
+
+
