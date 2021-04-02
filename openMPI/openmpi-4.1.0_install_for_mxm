@@ -1,0 +1,25 @@
+#!/bin/bash
+#### openmpi-4.1.0 install ####
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#advance preparatiogcc
+#openmpi-4.1.0
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#openmpi-4.1.0
+yum install numactl-devel
+yum install binutils-devel
+
+./configure --prefix=/apps/mpi/gcc/openmpi-4.1.0 --with-lsf  \
+> --enable-orterun-prefix-by-default \
+> --with-mxm=/opt/mellanox/mxm \
+> --enable-mpi-cxx --enable-mpi-fortran  \
+> --with-verbs --with-verbs-libdir=/usr/lib64 --enable-dlopen \
+> --with-gnu-ld LIB=-l/usr/lib64 --with-ucx=/apps/mpi/gcc/openmpi-4.1.0/ucx-1.10.0 | tee configure_resul
+
+
+make all -j 32 2>&1 | tee make_result
+make check -j 32 2>&1 | tee make_check.result
+make install
