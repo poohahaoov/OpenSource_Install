@@ -1,0 +1,20 @@
+#!/bin/bash
+
+### gcc-11.1.0 Install on RHEL8.3 #########################################
+
+
+
+dnf install gmp-devel
+dnf install mpfr-devel
+rpm -Uvh /home/sr4/taesooism.kim/rpms/libmpc-devel-1.0.2-9.el8.x86_64.rpm
+rpm -Uvh /home/sr4/taesooism.kim/rpms/isl-devel-0.16.1-6.el8.x86_64.rpm
+dnf install glibc-devel.i686
+
+
+tar xvfJ /home/sr4/taesooism.kim/GCC/gcc-11.1.0.tar.xz
+
+cd gcc-11.1.0
+
+./configure --prefix=/apps/gcc/rhel8/gcc-11.1.0
+make -j 
+make install
